@@ -21,6 +21,7 @@
 const axios = require('axios')
 const MAX_IMAGE_SIZE = 5000000
 const API_ENDPOINT = 'https://9kc7jq1mp2.execute-api.us-east-1.amazonaws.com/default/getPresignedURL'
+const dynamodb_insertion_ENDPOINT = 'https://bikodailzb.execute-api.us-east-1.amazonaws.com/default/insert_image_info';
 
 export default {
     name: 'upload-image',
