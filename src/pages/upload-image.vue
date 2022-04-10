@@ -18,6 +18,8 @@
 
 <script>
 // import { defineComponent } from '@vue/composition-api'
+import { v4 as uuidv4 } from 'uuid';
+
 const axios = require('axios')
 const MAX_IMAGE_SIZE = 5000000
 const API_ENDPOINT = 'https://9kc7jq1mp2.execute-api.us-east-1.amazonaws.com/default/getPresignedURL'
@@ -96,6 +98,23 @@ export default {
         // use this to link pic info in dynamodb
         this.uploadURL = response.data.uploadURL.split('?')[0]
         console.log(this.uploadURL)
+
+        var pic_info =  {
+                      "uuid": uuidv4(),
+                      "pic-url": this.uploadURL,
+                      "uploader": "RIGHT",
+                      "uploader-id": 96,
+                      "runners": [],
+                      "marathon-match": "New Yorker's Marathon"
+                    }
+
+        console.log(pic_info)
+        const db_insert_post = await fetch(dynamodb_insertion_ENDPOINT, {
+          method: 'POST',
+          body: JSON.stringify(pic_info)
+        })
+        console.log(db_insert_post)
+        
       }
     }
 }
