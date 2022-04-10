@@ -54,7 +54,7 @@ export default {
             return alert('Wrong file type - JPG only.')
           }
           if (e.target.result.length > MAX_IMAGE_SIZE) {
-            return alert('Image is loo large - 1Mb maximum')
+            return alert('Image is loo large - 5Mb maximum')
           }
           this.image = e.target.result
         }
@@ -86,12 +86,10 @@ export default {
           array.push(binary.charCodeAt(i))
         }
         let blobData = new Blob([new Uint8Array(array)], {type: 'image/jpeg'})
-
-        var body = new FormData();
-        body.append('file', blobData);  
+  
         const result = await fetch(response.data.uploadURL, {
           method: 'PUT',
-          body: body
+          body: blobData
         })
         console.log('Result: ', result)
         // Final URL for the user doesn't need the query string params
@@ -102,8 +100,8 @@ export default {
         var pic_info =  {
                       "uuid": uuidv4(),
                       "pic-url": this.uploadURL,
-                      "uploader": "RIGHT",
-                      "uploader-id": 96,
+                      "uploader": "Jara",
+                      "uploader-id": 0,
                       "runners": [],
                       "marathon-match": "New Yorker's Marathon"
                     }
