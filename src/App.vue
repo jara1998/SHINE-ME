@@ -9,7 +9,6 @@
 
 
 <script type="text/javascript">
-
 export default {
   name: 'App',
   components: {},
@@ -17,7 +16,6 @@ export default {
     return {
     }
   },
-
   methods: {
     to_uploader () {
         this.$router.push("./upload-image")
@@ -30,7 +28,6 @@ export default {
   }
   
 }
-
 </script>
 
 <style>
@@ -65,3 +62,4 @@ pre {
   padding: 10px;
 }
 </style>
+© 2022 GitHub, Inc.

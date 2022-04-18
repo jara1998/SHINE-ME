@@ -102,11 +102,10 @@ export default {
                       "pic-url": this.uploadURL,
                       "uploader": "Jara",
                       "uploader-id": 0,
-                      "runners": [],
                       "marathon-match": "New Yorker's Marathon"
                     }
 
-        console.log(pic_info)
+        console.log(JSON.stringify(pic_info))
         const db_insert_post = await fetch(dynamodb_insertion_ENDPOINT, {
           method: 'POST',
           body: JSON.stringify(pic_info)
